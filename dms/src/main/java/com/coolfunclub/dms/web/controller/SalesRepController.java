@@ -40,20 +40,20 @@ public class SalesRepController {
     }
 
     @GetMapping(value = "/rep/{ssn}")
-    public SalesRep getSalesRep(@PathVariable("ssn") int ssn ){
+    public SalesRep getSalesRep(@PathVariable("ssn") long ssn ){
         return salesRepService.getSalesRepById(ssn);
     }
 
     @DeleteMapping(value = "/rep/{ssn}")
-    public void deleteManagerById(@PathVariable("ssn") int ssn ){
+    public void deleteManagerById(@PathVariable("ssn") long ssn ){
         salesRepService.deleteSalesRep(ssn);
     }
 
     @PutMapping(value = "/rep/{ssn}")
-    public void updateSalesRep(@PathVariable int ssn, @RequestBody SalesRep salesRep ){
+    public void updateSalesRep(@PathVariable long ssn, @RequestBody SalesRep salesRep ){
         salesRep.setSSN(ssn);
         //salesRep.setId(id);
         salesRepService.updateSalesRep(salesRep);
     }
-    
+
 }

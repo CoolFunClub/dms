@@ -13,8 +13,8 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class SalesRep extends Person {
     @Id
-    @Column(name = "mSSN")
-    private int mSSN;
+    @Column(name = "ssn")
+    private long ssn;
 
     @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")
@@ -24,12 +24,12 @@ public class SalesRep extends Person {
     private List<CreditCard> creditCards;
 
     //Getters and Setters
-    public int getSSN(){
-        return mSSN;
+    public long getSSN(){
+        return ssn;
     }
 
-    public void setSSN(int mSSN){
-        this.mSSN = mSSN;
+    public void setSSN(long ssn){
+        this.ssn = ssn;
     }
     public void setAccount(Account account){
         this.account=account;

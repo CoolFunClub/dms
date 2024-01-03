@@ -37,21 +37,21 @@ public class ManagerController {
     }
 
     @GetMapping(value = "/manager/{ssn}")
-    public Manager getManagerById(@PathVariable("ssn") int ssn ){
+    public Manager getManagerById(@PathVariable("ssn") long ssn ){
         return managerService.getManagerById(ssn);
     }
 
     @DeleteMapping(value = "/manager/{ssn}")
-    public void deleteManager(@PathVariable("ssn") int ssn ){
+    public void deleteManager(@PathVariable("ssn") long ssn ){
         managerService.deleteManager(ssn);
     }
 
     @PutMapping(value = "/manager/{ssn}")
-    public void updateManager(@PathVariable int ssn, @RequestBody Manager manager){
+    public void updateManager(@PathVariable long ssn, @RequestBody Manager manager){
         manager.setSSN(ssn);
         managerService.updateManager(manager);
     }
 
-    
-    
+
+
 }

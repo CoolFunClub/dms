@@ -43,11 +43,11 @@ public class ManagerService {
         return Managers;
     }
 
-    public void deleteManager(int ssn){
+    public void deleteManager(long ssn){
         managerRepository.deleteById(ssn);
     }
 
-    public Manager getManagerById(int ssn){
+    public Manager getManagerById(long ssn){
         return managerRepository.findById(ssn).orElse(null);
     }
 
@@ -55,7 +55,7 @@ public class ManagerService {
         managerRepository.save(newManager);
     }
 
-    public Manager associateAccountToManager(int ssn, Account account) {
+    public Manager associateAccountToManager(long ssn, Account account) {
         System.out.println(account.toString());
         Manager manager = managerRepository.findById(ssn).orElse(null);
         manager.setAccount(accountService.addAccount(account));

@@ -13,20 +13,20 @@ public abstract class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long  mPersonID; //PK      */
     //@Id
-    @Column(name = "mFirstName")
-    protected String mFirstName;
-    @Column(name = "mLastName")
-    protected String mLastName;
-    @Column(name = "mDateBirth")
-    protected String mDateBirth;
-    @Column(name = "mGender")
-    protected String mGender;
-    @Column(name = "mPhone")
-    protected int mPhone;
-    @Column(name = "mEmail")
-    protected String mEmail;
-    @Column(name = "mAddress")
-    protected String mAddress;
+    @Column(name = "firstName")
+    protected String firstName;
+    @Column(name = "lastName")
+    protected String lastName;
+    @Column(name = "dateBirth")
+    protected String dateBirth;
+    @Column(name = "gender")
+    protected String gender;
+    @Column(name = "phone")
+    protected long phone;
+    @Column(name = "email")
+    protected String email;
+    @Column(name = "address")
+    protected String address;
 
 /*
 /*
@@ -35,32 +35,32 @@ public abstract class Person {
     }   */
 
 
-    public void setFirstName(String mFirstName) {
-        this.mFirstName = mFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLastName(String mLastName) {
-        this.mLastName = mLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setDateBirth(String mDateBirth) {
-        this.mDateBirth = mDateBirth;
+    public void setDateBirth(String dateBirth) {
+        this.dateBirth = dateBirth;
     }
 
-    public void setGender(String mGender) {
-        this.mGender = mGender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public void setPhone(int mPhone) {
-        this.mPhone = mPhone;
+    public void setPhone(long phone) {
+        this.phone = phone;
     }
 
-    public void setEmail(String mEmail) {
-        this.mEmail = mEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setAddress(String mAddress) {
-        this.mAddress = mAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
  /*   // Get methods
@@ -71,31 +71,31 @@ public abstract class Person {
 
 
     public String getFirstName() {
-        return mFirstName;
+        return firstName;
     }
 
 
     public String getLastName() {
-        return mLastName;
+        return lastName;
     }
 
     public String getDateBirth() {
-        return mDateBirth;
+        return dateBirth;
     }
 
     public String getGender() {
-        return mGender;
+        return gender;
     }
 
-    public int getPhone() {
-        return mPhone;
+    public long getPhone() {
+        return phone;
     }
 
     public String getEmail() {
-        return mEmail;
+        return email;
     }
 
     public String getAddress() {
-        return mAddress;
+        return address;
     }
 }

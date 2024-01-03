@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.coolfunclub.dms.model.SalesRep;
 
 @Repository
-public interface SalesRepRepository extends JpaRepository<SalesRep, Integer>{
+public interface SalesRepRepository extends JpaRepository<SalesRep, Long>{
 
 }

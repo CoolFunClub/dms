@@ -32,8 +32,8 @@ public class CreditCardService {
 
     public ResponseEntity<String> addCard(CreditCard creditCard, String id) {
         Optional<Customer> customerOptional = customerRepository.findById(id);
-        Optional<Manager> managerOptional = managerRepository.findById(Integer.parseInt(id));
-        Optional<SalesRep> salesRepOptional = salesRepRepository.findById(Integer.parseInt(id));
+        Optional<Manager> managerOptional = managerRepository.findById(Long.parseLong(id));
+        Optional<SalesRep> salesRepOptional = salesRepRepository.findById(Long.parseLong(id));
 
         if(customerOptional.isPresent()){
             Customer myCustomer = customerOptional.get();

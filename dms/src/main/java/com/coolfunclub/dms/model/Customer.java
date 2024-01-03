@@ -11,7 +11,6 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.ToString;
-import lombok.ToString;
 
 @ToString
 @Entity
@@ -19,8 +18,8 @@ import lombok.ToString;
 public class Customer extends Person{
 
     @Id
-    @Column (name="mDriverLicenseID")
-    private String mDriverLicenseID;
+    @Column (name="driverLicenseID")
+    private String driverLicenseID;
     @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
@@ -30,11 +29,11 @@ public class Customer extends Person{
 
     // Getters and setters for driver license ID
     public String getDriverLicenseID() {
-        return mDriverLicenseID;
+        return driverLicenseID;
     }
 
-    public void setDriverLicenseID(String mDriverLicenseID) {
-        this.mDriverLicenseID = mDriverLicenseID;
+    public void setDriverLicenseID(String driverLicenseID) {
+        this.driverLicenseID = driverLicenseID;
     }
 
     public void setAccount(Account account){

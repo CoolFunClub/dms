@@ -44,11 +44,11 @@ public class SalesRepService {
         return salesReps;
     }
 
-    public void deleteSalesRep(int ssn){
+    public void deleteSalesRep(long ssn){
             salesRepRepository.deleteById(ssn);
     }
 
-    public SalesRep getSalesRepById(int ssn){
+    public SalesRep getSalesRepById(long ssn){
         return salesRepRepository.findById(ssn).orElse(null);
     }
 
@@ -56,7 +56,7 @@ public class SalesRepService {
     public void updateSalesRep(SalesRep newSalesRep){
         salesRepRepository.save(newSalesRep);
     }
-    public SalesRep associateAccountToSalesRep(int ssn, Account account) {
+    public SalesRep associateAccountToSalesRep(long ssn, Account account) {
         System.out.println(account.toString());
         SalesRep salesRep = salesRepRepository.findById(ssn).orElse(null);
         salesRep.setAccount(accountService.addAccount(account));

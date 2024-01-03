@@ -36,17 +36,17 @@ public class AccountController {
         return createAccount(accountDto, dl, customerService::associateAccountToCustomer);
     }
     @PostMapping("/account/manager/{ssn}")
-    public ResponseEntity<?> createManagerAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+    public ResponseEntity<?> createManagerAccount(@PathVariable Long ssn, @RequestBody AccountDTO accountDto) {
         // from the manager service obj, let the generic method know it will need to call that method
         return createAccount(accountDto, ssn, managerService::associateAccountToManager);
     }
     @PostMapping("/account/salesRep/{ssn}")
-    public ResponseEntity<?> createSalesRepAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+    public ResponseEntity<?> createSalesRepAccount(@PathVariable Long ssn, @RequestBody AccountDTO accountDto) {
         // from the salesrep service obj, let the generic method know it will need to call that method
         return createAccount(accountDto, ssn, salesRepService::associateAccountToSalesRep);
     }
     // each of the associate methods in the service classes
-    private <T, ID> ResponseEntity<?> createAccount(AccountDTO accountDto, ID id, BiFunction<ID, Account, T> serviceMethod) { 
+    private <T, ID> ResponseEntity<?> createAccount(AccountDTO accountDto, ID id, BiFunction<ID, Account, T> serviceMethod) {
         // it infers T from the service object we pass to it
         // and it infers the diff type of ID (we have two types we use so far)
         System.out.println(accountDto.toString());
@@ -71,28 +71,28 @@ public class AccountController {
     @PostMapping("/login/customer/{dl}")
     public ResponseEntity<String> loginCustomerAccount(@PathVariable String dl, @RequestBody AccountDTO accountDto) {
         Customer customer = customerService.getCustomerById(dl);
-        if(customer !=null){ 
+        if(customer !=null){
             String storedPW = customer.getAccount().getPw();
-            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) { 
+            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) {
                 return ResponseEntity.status(HttpStatus.OK).body("Verified");
-            }else { 
+            }else {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid");
             }
-        }else { 
+        }else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
         }
     }
     @PostMapping("/login/manager/{ssn}")
     public ResponseEntity<String> loginManagerAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
         Manager manager = managerService.getManagerById(ssn);
-        if (manager != null) { 
+        if (manager != null) {
             String storedPW = manager.getAccount().getPw();
-            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) { 
+            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) {
                 return ResponseEntity.status(HttpStatus.OK).body("Verified");
-            } else { 
+            } else {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid");
             }
-        } else { 
+        } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
         }
     }
@@ -100,18 +100,18 @@ public class AccountController {
     @PostMapping("/login/salesRep/{ssn}")
     public ResponseEntity<?> loginSalesRepAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
         SalesRep salesRep = salesRepService.getSalesRepById(ssn);
-        if(salesRep !=null){ 
+        if(salesRep !=null){
             String storedPW = salesRep.getAccount().getPw();
-            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) { 
+            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) {
                 return ResponseEntity.status(HttpStatus.OK).body("Verified");
-            }else { 
+            }else {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid");
             }
-        }else { 
+        }else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
         }
-        
+
     }
 
-    
+
 }

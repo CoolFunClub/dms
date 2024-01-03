@@ -26,15 +26,15 @@ public class CreditCard {
     private List<Payment> payments;
 
     @ManyToOne
-    @JoinColumn(name = "customer_DL",referencedColumnName ="mDriverLicenseID")
+    @JoinColumn(name = "customer_DL",referencedColumnName ="driverLicenseID")
     private Customer customers;
 
     @ManyToOne
-    @JoinColumn(name = "manager_SSN",referencedColumnName ="mSSN")
+    @JoinColumn(name = "manager_SSN",referencedColumnName ="ssn")
     private Manager managers;
 
     @ManyToOne
-    @JoinColumn(name = "salesRep_SSN",referencedColumnName ="mSSN")
+    @JoinColumn(name = "salesRep_SSN",referencedColumnName ="ssn")
     private SalesRep salesReps;
 
 

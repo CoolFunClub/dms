@@ -49,21 +49,21 @@ public class CustomerService {
         return customers;
     }
 
-    public void deleteCustomer(String driverLic) {
-        customerRepository.deleteById(driverLic);
+    public void deleteCustomer(String driverLicenseID) {
+        customerRepository.deleteById(driverLicenseID);
     }
 
-    public Customer getCustomerById(String driverLic) {
-        return customerRepository.findById(driverLic).orElse(null);
+    public Customer getCustomerById(String driverLicenseID) {
+        return customerRepository.findById(driverLicenseID).orElse(null);
     }
 
     public void updateCustomer(Customer updatedCustomer) {
             customerRepository.save(updatedCustomer);
     }
 
-     public Customer associateAccountToCustomer(String dl, Account account) {
+     public Customer associateAccountToCustomer(String driverLicenseID, Account account) {
         System.out.println(account.toString());
-        Customer customer = customerRepository.findById(dl).orElse(null);
+        Customer customer = customerRepository.findById(driverLicenseID).orElse(null);
         customer.setAccount(accountService.addAccount(account));
         return customerRepository.save(customer);
     }

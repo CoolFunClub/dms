@@ -9,15 +9,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Id;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "managers")
 public class Manager extends Person {
-    @Column(name = "mSSN")
+    @Column(name = "ssn")
     @Id
-    private int mSSN;
+    private long ssn;
     @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
@@ -26,12 +25,12 @@ public class Manager extends Person {
     private List<CreditCard> creditCards;
 
     //Getters and Setters
-    public int getSSN(){
-        return mSSN;
+    public long getSSN(){
+        return this.ssn;
     }
 
-    public void setSSN(int mSSN){
-        this.mSSN = mSSN;
+    public void setSSN(long ssn){
+        this.ssn = ssn;
     }
     public void setAccount(Account account){
         this.account=account;
