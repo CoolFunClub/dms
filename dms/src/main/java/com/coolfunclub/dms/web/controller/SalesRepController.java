@@ -23,7 +23,7 @@ import com.coolfunclub.dtos.AccountDTO;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("cfc/")
+/* @RequestMapping("cfc/") */
 public class SalesRepController {
 
     @Autowired

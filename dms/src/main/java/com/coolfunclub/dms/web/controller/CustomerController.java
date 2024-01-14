@@ -24,7 +24,7 @@ import com.coolfunclub.dtos.AccountDTO;
 
 
 @RestController
-@RequestMapping("cfc/")
+/* @RequestMapping("cfc/") */
 public class CustomerController {
 
   @Autowired

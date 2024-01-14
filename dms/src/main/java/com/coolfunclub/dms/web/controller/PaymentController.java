@@ -14,7 +14,7 @@ import com.coolfunclub.dms.model.Payment;
 import com.coolfunclub.dms.service.PaymentService;
 
 @RestController
-@RequestMapping("cfc/")
+/* @RequestMapping("cfc/") */
 public class PaymentController {
 
     @Autowired

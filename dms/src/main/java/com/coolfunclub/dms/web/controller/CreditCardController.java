@@ -15,7 +15,7 @@ import com.coolfunclub.dms.model.CreditCard;
 import com.coolfunclub.dms.service.CreditCardService;
 
 @RestController
-@RequestMapping("cfc/")
+/* @RequestMapping("cfc/") */
 public class CreditCardController {
 
     @Autowired
